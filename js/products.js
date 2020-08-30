@@ -1,5 +1,4 @@
 function showCategoriesList(array){
-
     let htmlContentToAppend = "";
     for(let i = 0; i < array.length; i++){
         let category = array[i];
@@ -16,7 +15,7 @@ function showCategoriesList(array){
                         <small class="text-muted">` + category.soldCount + ` artículos</small>
                     </div>
                     <p>` + category.description + `</p>
-                    <p>` + category.currency +  ` ` + category.cost + `</p
+                    <p>` + category.currency +  ` ` + category.cost + `</p>
                 </div>
             </div>
         </div>
