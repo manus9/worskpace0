@@ -87,3 +87,5 @@ function submitComment(comment){
     comentarioActual.push(comentarioActual.description = getElementById("comment-text"),
         );
 };
+console.log(comments);
+console.log(comentarioActual);
