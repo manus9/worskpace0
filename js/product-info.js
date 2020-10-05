@@ -1,3 +1,4 @@
+var comments = {};
 var products = {};
 function showImagesGallery(array){
 
@@ -22,6 +23,7 @@ function showImagesGallery(array){
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
+
 document.addEventListener("DOMContentLoaded", function(e){
     getJSONData(PRODUCT_INFO_URL).then(function(resultObj){
         if (resultObj.status === "ok")
@@ -33,19 +35,50 @@ document.addEventListener("DOMContentLoaded", function(e){
             let costHTML = document.getElementById("productCost");
             let currency = document.getElementById("productCurrency")
             let soldCountHTML = document.getElementById("productSoldCount");
-        
+
             nameHTML.innerHTML = product.name;
             descriptionHTML.innerHTML = product.description;
             costHTML.innerHTML = product.cost;
             currency.innerHTML = product.currency;
             soldCountHTML.innerHTML = product.soldCount;
-
             //Muestro las imagenes en forma de galería
             showImagesGallery(product.images);
-
+            console.log(product.relatedProducts)
         }
     });
 });
+
+document.addEventListener("DOMContentLoaded", function(e){
+    getJSONData(PRODUCTS_URL).then(function(resultObj2){
+        if (resultObj2.status === "ok")
+        {
+            relatedProducts = resultObj2.data;
+
+            showRelatedProducts();
+            
+        }
+    });
+});
+
+function showRelatedProducts(){
+
+    let htmlContentToAppend = "";
+
+    for(let i = 0; i < product.relatedProducts.length; i++){
+        let relatedProduct = relatedProducts[i];
+        htmlContentToAppend += `
+        <div >
+            <a href="product-info.html">
+                <img  class="img-fluid img-thumbnail" src="` + relatedProduct.imgSrc + `" style="width:200px;"></a>
+                <span style="padding-left: 10px;">`+ relatedProduct.name +`</span>
+            
+        </div>
+        `
+        
+    }
+        document.getElementById("related").innerHTML = htmlContentToAppend;
+}
+
 
 function showComments(){
 
@@ -67,25 +100,13 @@ function showComments(){
 
 };  
 
-getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function(resultObj2){
-    if (resultObj2.status === "ok") {
-        comments = resultObj2.data;
-
+getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function(resultObj3){
+    if (resultObj3.status === "ok") {
+        comments = resultObj3.data;
+        console.log(comments);
         showComments();
 
     }
 }); 
-
-var d = new Date();
-let comentarioActual = {
-    "score": undefined,
-    "desctiption": undefined,
-    "user": undefined,
-    "dateTime": undefined
-};
-function submitComment(comment){
-    comentarioActual.push(comentarioActual.description = getElementById("comment-text"),
-        );
-};
 console.log(comments);
-console.log(comentarioActual);
+
