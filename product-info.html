@@ -23,7 +23,16 @@
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
       <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
-      <a class="py-2 d-none d-md-inline-block" id="user" style= "color: white;"></a>
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown button
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="cart.html">Mi carrito</a>
+          <a class="dropdown-item" href="my-profile.html">Perfil</a>
+          <a class="dropdown-item" id="logOut" href="index.html">Cerrar sesión</a>
+        </div>
+      </div>
     </div>
   </nav>
   <main role="main">
@@ -61,20 +70,26 @@
       </dl>
       <a type="button" class="btn btn-light btn-lg btn-block" href="products.html">Ver productos</a>
     </div>
-    
-    <div class="container mt-5" >
+    <div class="container mt-5">
+      <d1>
+        <dt>Productos relacionados:</dt>
+      </d1>
+      <div id="related">
+      </div>
+    </div>
+    <div class="container mt-5">
       <span style="font-size: 20px; font-weight: 550; margin-left:25px; ">Comentarios</span>
       <hr>
       <div class="comment" id="comment">
       </div>
-      <form class="comment-form" >
+      <form class="comment-form">
         
           <textarea class="comment-input" rows="2" id="comment-text" cols="55" placeholder="Escribe un comentario" style="resize: initial;" 
           onfocus="this.placeholder = ''" onblur="this.placeholder = 'Escribe un comentario'" required></textarea>
           <br>
-          <input type="text" id="score" placeholder="Puntuación" style="width: 100px;" onsubmit="" required>
+          <input type="text" id="comment-score" placeholder="Puntuación" style="width: 100px;" onsubmit="" required>
           <br>
-          <button type="submit" onclick="submitComment()">Publicar</button>
+          <button>Publicar</button>
           
       </form>  
     </div>
