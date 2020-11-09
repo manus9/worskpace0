@@ -126,7 +126,7 @@ function showCosts () {
     let shippingValue = 0;
 
     if (shippingType >= 1) {
-        shippingValue = Math.ceil(subtotalValue * shippingType);
+        shippingValue = Math.ceil(subtotalValue * (shippingType / 100));
         shippingCostHTML.innerHTML = "$" + shippingValue;
     }
 
