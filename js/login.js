@@ -1,21 +1,22 @@
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
-const login = document.getElementById('login');
-const usuario = document.getElementById('username');
-const password = document.getElementById('password');
+var login = document.getElementById('login');
+var email = document.getElementById('email');
+var password = document.getElementById('password');
 
+console.log(login);
 login.addEventListener('submit', function(event){
     event.preventDefault();
-    let users = Array(
+    let userLogin = Array(
         {
-            usuario: username.value,
-            contraseña: password.value
+            email: email.value,
+            password: password.value,
         }
     );
-    console.log(users)
+    console.log(userLogin);
     
-    localStorage.setItem('user' , JSON.stringify(users));
+    localStorage.setItem('user' , JSON.stringify(userLogin));
     window.location.href= 'inicio.html';
     
 });

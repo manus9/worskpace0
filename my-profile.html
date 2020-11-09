@@ -27,41 +27,109 @@
         font-size: 3.5rem;
       }
     }
+    
   </style>
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
   <link href="css/dropzone.css" rel="stylesheet">
+  <link href="css/font-awesome.min.css" rel="stylesheet">
 </head>
 
-<body>
-  <nav class="site-header sticky-top py-1 bg-dark">
-    <div class="container d-flex flex-column flex-md-row justify-content-between">
-      <a class="py-2 d-none d-md-inline-block" href="inicio.html">Inicio</a>
-      <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
-      <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
-      <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
-      <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown button
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="cart.html">Mi carrito</a>
-          <a class="dropdown-item" href="my-profile.html">Perfil</a>
-          <a class="dropdown-item" id="logOut" href="index.html">Cerrar sesión</a>
+<body style="background-color: #e4e5e75b;">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-center py-1" style="font-size: 15px;">
+    <button class="navbar-toggler py-2 px-2" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse pl-2" id="navbarSupportedContent" >
+      <div class="container d-flex flex-column flex-md-row justify-content-between">
+        <a class="py-2 nav-link" href="inicio.html">Inicio</a>
+        <a class="py-2 nav-link" href="categories.html">Categorías</a>
+        <a class="py-2 nav-link" href="products.html">Productos</a>
+        <a class="py-2 nav-link" href="sell.html">Vender</a>
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Dropdown button
+          </button>
+          <div class="dropdown-menu py-1" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="cart.html">Mi carrito</a>
+            <a class="dropdown-item" href="my-profile.html">Perfil</a>
+            <a class="dropdown-item" id="logOut" href="index.html">Cerrar sesión</a>
+          </div>
         </div>
       </div>
     </div>
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 7 (Fecha de entrega: 8/11/202020) -> Punto 1 y 2.</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+  <div class="container py-5 px-3">
+    <div class="row">
+      <div class="col-6  py-5">
+        <div class="container" style="justify-content: space-between;">
+          <img  class="img pl-4 pb-4" id="imgPreview" src="" alt="Preview" style="max-width: 15rem; max-height: 15rem;">
+          <h4 class="mb-3 ml-4" id="userName"></h4>
+        </div>
+        <div class="row border-top mr-1 pt-3 ml-3">
+          <div class="col-sm-10 pl-1">
+            <div class="container">
+              <p id="userEmail"></p>
+              <p id="userPhoneNumber">
+              </p>
+              <p class="" id="userBirthday"></p>
+            </div>
+          </div>
+        </div> 
+      </div>
+      <div class="col-2 p-3 m3">
+        <button type="button" class="btn text-muted mb-5" data-toggle="modal" data-target="#exampleModalCenter" aria-hidden="false">
+          <i class="fas fa-edit"></i>
+        </button>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title">Editar perfil</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              </div>
+              <div class="modal-body">
+               <div class="row">
+                <div class="col">
+                  <form class="form"  id="editProfile">
+                    <div class="container p-4">
+                      <div class="row pb-1">
+                        <input type="text" class="form-control " id="inputFirstName"  placeholder="Nombre"  required>
+                      </div>
+                      <div class="row pb-1">
+                        <input type="text" class="form-control " id="inputLastName" placeholder="Apellido"  required>
+                      </div>
+                      <div class="row pb-1">
+                       <input type="file" id="myFileInput" required>
+                      </div>
+                      <div class="row pb-1">
+                        <input type="number" class="form-control " id="inputPhoneNumber" placeholder="Teléfono"   style="-webkit-appareance: none;" required>
+                      </div>
+                      <div class="row pb-1">
+                        <input type="number" class="form-control " id="inputAge" placeholder="Edad"   style="-webkit-appareance: none;" required>
+                      </div>
+                      <div class="row">
+                        <input type="date" class="form-control " id="inputBirthday" style="font-size: 14px;"  required>
+                      </div>
+                    </div>
+                    <div class="container text-right pt-2">
+                      <button type="submit" class="btn btn-primary ">Confirmar</button>
+                    </div>
+                  </form>
+                </div>
+               </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-  <footer class="text-muted bg-light">
+  <footer class="text-muted">
     <div class="container">
       <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
       <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
@@ -86,6 +154,7 @@
   <script src="js/dropzone.js"></script>
   <script src="js/init.js"></script>
   <script src="js/my-profile.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/profile-nav.js"></script>
 </body>
-
 </html>

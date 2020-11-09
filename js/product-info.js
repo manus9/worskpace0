@@ -1,5 +1,5 @@
-var comments = {};
-var products = {};
+var comments;
+var product;
 function showImagesGallery(array){
 
     let htmlContentToAppend = "";
@@ -109,4 +109,6 @@ getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function(resultObj3){
     }
 }); 
 console.log(comments);
+
+
 
